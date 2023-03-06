@@ -4,6 +4,13 @@ const isLoginValid = function (login) {
     return login.length >= 4 && login.length <= 16;
 };
 
+const isLoginUnique = function (login) {
+    if (allLogins.includes(login)) {
+        return false;
+    }
+    return true;
+};
+
 const addLogin = function (login) {
     if (!isLoginValid(login)) {
       return 'Помилка! Логін повинен бути від 4 до 16 символів';
@@ -15,14 +22,6 @@ const addLogin = function (login) {
   
     allLogins.push(login);
     return 'Логін успішно доданий!';
-};
-
-
-const isLoginUnique = function (login) {
-    if (allLogins.includes(login)) {
-        return false;
-    }
-    return true;
 };
 
 const userLogin = prompt('Ведіть свій логін:');
